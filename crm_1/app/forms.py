@@ -1,7 +1,7 @@
 from django import forms
 from django.core import validators
 
-from .models import Member, Role, Student, School, Subject, Group, Schedule
+from .models import Member, Role, Student, School, Subject, Group, Schedule, Person
 
 error_messages = {
     'required': 'Необходимо заполнить',
@@ -156,8 +156,8 @@ class AddCampForm(forms.Form):
                         'min_value': 'Требуется положительное целое число'})
 
 class AddSalaryForm(forms.Form):
-    name = forms.CharField(max_length=50, label='Имя',
-                           error_messages=error_messages)
+    name = forms.ModelChoiceField (queryset=School.objects.all(), label='Филиал',
+                                    empty_label='...')
 
     duty = forms.CharField(max_length=50, label='Должность',
                               required=False,
