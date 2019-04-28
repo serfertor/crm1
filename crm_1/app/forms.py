@@ -61,7 +61,7 @@ class AddAgeCategoryForm(forms.Form):
     start = forms.IntegerField(
         label='Начальный возраст',
         validators=[validators.MinValueValidator(0)],
-        required= False,
+        required=False,
         error_messages={**error_messages,
                         'min_value': 'Требуется положительное целое число'}
     )
@@ -155,13 +155,14 @@ class AddCampForm(forms.Form):
         error_messages={**error_messages,
                         'min_value': 'Требуется положительное целое число'})
 
+
 class AddSalaryForm(forms.Form):
-    name = forms.ModelChoiceField (queryset=Member.objects.all(), label='Филиал',
-                                    empty_label='...')
+    name = forms.ModelChoiceField(queryset=Member.objects.all(), label='Филиал',
+                                  empty_label='...')
 
     duty = forms.CharField(max_length=50, label='Должность',
-                              required=False,
-                              error_messages=error_messages)
+                           required=False,
+                           error_messages=error_messages)
 
     salary = forms.IntegerField(
         label='Рубли',
@@ -227,6 +228,6 @@ class AddGroupScheduleForm(forms.Form):
                                  input_formats=['%d.%m.%Y'])
 
     count = forms.IntegerField(label='Кол-во занятий',
-                                 validators=[validators.MinValueValidator(1)])
+                               validators=[validators.MinValueValidator(1)])
 
     teachers = forms.ModelMultipleChoiceField(queryset=Member.objects.all(), label='Пеподаватели')

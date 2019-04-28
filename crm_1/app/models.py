@@ -93,7 +93,8 @@ class Camps(models.Model):
     address = models.CharField(max_length=250, blank=True)
     children_count = models.PositiveSmallIntegerField()
 
-class People (models.Model):
+
+class People(models.Model):
     name = models.CharField(max_length=50)
     duty = models.CharField(max_length=250, blank=True)
     salary = models.PositiveSmallIntegerField(null=True)

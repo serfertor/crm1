@@ -240,6 +240,7 @@ def company_salaries(request):
     return render(request, 'app/company_salaries.html',
                   {'peoples': peoples})
 
+
 class CompanySalaryAdd(FormView):
     template_name = 'app/company_salaries_add.html'
     form_class = AddSalaryForm
@@ -248,7 +249,6 @@ class CompanySalaryAdd(FormView):
     def form_valid(self, form):
         People.objects.create(**form.cleaned_data)
         return super().form_valid(form)
-
 
 
 @method_decorator(login_required, 'dispatch')
