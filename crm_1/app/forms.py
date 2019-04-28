@@ -156,7 +156,7 @@ class AddCampForm(forms.Form):
                         'min_value': 'Требуется положительное целое число'})
 
 class AddSalaryForm(forms.Form):
-    name = forms.ModelChoiceField (queryset=School.objects.all(), label='Филиал',
+    name = forms.ModelChoiceField (queryset=Member.objects.all(), label='Филиал',
                                     empty_label='...')
 
     duty = forms.CharField(max_length=50, label='Должность',
