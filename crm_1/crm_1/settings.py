@@ -41,7 +41,7 @@ INSTALLED_APPS = [
     # 'compressor',
     # 'compressor_toolkit',
 
-    'app.apps.AppConfig',
+    'app.apps.App',
 ]
 
 MIDDLEWARE = [
