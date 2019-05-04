@@ -37,7 +37,7 @@ urlpatterns = [
          name='learning_groups_add_schedule'),
     path('learning/groups/add_schedule/<int:pk>/', views.LearningGroupScheduleAdd.as_view(),
          name='learning_groups_add_schedule'),
-    path('lerning/Feedback/<int:pk>/', views.Mail.as_view(), name='learning_mail_add'),
-    path('lerning/Feedback/', views.Mail.as_view(), name='learning_mail_add')
+    path('lerning/Feedback/<int:pk>/', views.SendMail.as_view(), name='learning_mail_add'),
+    path('lerning/Feedback/', views.SendMail.as_view(), name='learning_mail_add')
 
 ]
