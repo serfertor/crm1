@@ -8,19 +8,24 @@
             <div class="card-content">
                 <div class="row">
                     <div class="input-field col s12 m6">
-                        {{ form.group }}
-                        {{ form.group.label_tag }}
-                        {{ form.group.errors }}
+                        {{ form.top }}
+                        {{ form.top.label_tag }}
+                        {{ form.top.errors }}
                     </div>
                     <div class="input-field col s12 m6">
-                        {{ form.students }}
-                        {{ form.students.label_tag }}
-                        {{ form.students.errors }}
+                        {{ form.message }}
+                        {{ form.message.label_tag }}
+                        {{ form.message.errors }}
+                    </div>
+                    <div class="input-field col s12 m6">
+                        {{ form.towhom }}
+                        {{ form.towhom.label_tag }}
+                        {{ form.towhom.errors }}
                     </div>
                 </div>
             </div>
             <div class="card-action">
-                <button class="btn" type="submit">Добавить</button>
+                <button class="btn" type="submit">Отправить</button>
             </div>
         </form>
     </div>
