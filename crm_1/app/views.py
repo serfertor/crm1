@@ -359,3 +359,23 @@ class LearningGroupScheduleAdd(FormView):
             group = Group.objects.get(pk=pk)
             initial['group'] = group
         return initial
+
+@method_decorator(login_required, 'dispatch')
+def SendMail(request):
+    template_name = 'app/learning_mail_add.html'
+    model = Mail
+    subject = model.top
+    message = model.message
+    from_email = 'qweewqqweeqwq@gmail.com'
+    to_email = model.towhom
+    if subject and message and from_email:
+        send_mail(subject,
+                  message,
+                  from_email,
+                  [to_email],
+                  auth_user='qweewqqweeqwq',
+                  auth_password='tezFfByum4SGDQe'
+                  )
+    return render(request, template_name)
+
+
