@@ -155,7 +155,7 @@ class Schedule(models.Model):
 class Mail(models.Model):
     top = models.CharField(max_length=50, blank=True)
     message = models.CharField(max_length=50, blank=True)
-    towhom = models.ManyToManyField(Student, related_name='homework')
+    towhom = models.EmailField(blank=True)
 
 
 
