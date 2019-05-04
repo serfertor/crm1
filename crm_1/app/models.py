@@ -150,3 +150,12 @@ class Schedule(models.Model):
 
     def get_end_date(self):
         return self.start_date + datetime.timedelta(weeks=self.count)
+
+
+class Mail(models.Model):
+    top = models.CharField(max_length=50, blank=True)
+    message = models.CharField(max_length=50, blank=True)
+    towhom = models.EmailField(max_length=50, blank=True)
+
+
+
