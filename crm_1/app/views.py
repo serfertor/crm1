@@ -360,8 +360,9 @@ class LearningGroupScheduleAdd(FormView):
             initial['group'] = group
         return initial
 
+
 @method_decorator(login_required, 'dispatch')
-def SendMail(request):
+def sendmail(request):
     template_name = 'app/learning_mail_add.html'
     model = Mail
     subject = model.top
@@ -377,5 +378,3 @@ def SendMail(request):
                   auth_password='tezFfByum4SGDQe'
                   )
     return render(request, template_name)
-
-
