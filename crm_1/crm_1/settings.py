@@ -133,3 +133,6 @@ LOGIN_URL = 'index'
 # COMPRESS_PRECOMPILERS = (
 #     ('module', 'compressor_toolkit.precompilers.ES6Compiler'),
 # )
+EMAIL_PORT = 465
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_USE_SSL = True

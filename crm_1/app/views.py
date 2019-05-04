@@ -4,6 +4,7 @@ from django.shortcuts import render, redirect
 from django.urls import reverse_lazy, reverse
 from django.utils.decorators import method_decorator
 from django.views.generic import FormView, DetailView
+from django.core.mail import send_mail
 
 from .models import *
 from .forms import *
