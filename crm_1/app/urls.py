@@ -42,3 +42,4 @@ urlpatterns = [
     path('lerning/Feedback/', views.sendmail.as_view(), name='learning_mail_add')
 
 ]
+
