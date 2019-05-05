@@ -237,7 +237,7 @@ class Mail(forms.Form):
     top = forms.CharField(max_length=50, label='Заголовок',
                           required=False,
                           error_messages=error_messages)
-    message = forms.CharField(max_length=50, label='Сообщение',
+    message = forms.CharField(label='Сообщение',
                               required=False,
                               error_messages=error_messages)
     towhom = forms.EmailField(max_length=50, label='example@email.com',
