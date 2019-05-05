@@ -24,6 +24,7 @@ urlpatterns = [
     path('company/camps/', views.company_camps, name='company_camps'),
     path('company/camps/add/', views.CompanyCampsAdd.as_view(), name='company_camps_add'),
     path('learning/students/', views.learning_students, name='learning_students'),
+    path('learning/students/add', views.learning_students_add, name='learning_students_add'),
     path('company/salaries', views.company_salaries, name='company_salaries'),
     path('company/salaries/add/', views.CompanySalaryAdd.as_view(), name='company_salaries_add'),
     path('learning/groups/', views.learning_groups, name='learning_groups'),
