@@ -372,15 +372,22 @@ class sendmail(FormView):
         mail.save()
         return super().form_valid(form)
 
-    # subject = Mail.top
-    # message = Mail.message
-    # from_email = 'qweewqqweeqwq@gmail.com'
-    # to_email = Mail.towhom
-    # if subject and message and from_email:
-    #     send_mail(subject,
-    #               message,
-    #               from_email,
-    #               [to_email],
-    #               auth_user='qweewqqweeqwq',
-    #               auth_password='tezFfByum4SGDQe'
-    #               )
+    def get_initial(self):
+        initial = super().get_initial()
+        if 'pk' in self.kwargs:
+            pk = self.kwargs['pk']
+            mail = Mail.objects.get(pk=pk)
+            initial['mail'] = mail
+            subject = mail.top
+            message = mail.message
+            from_email = 'qweewqqweeqwq@gmail.com'
+            to_email = mail.towhom
+            if subject and message and from_email:
+                send_mail(subject,
+                          message,
+                          from_email,
+                          [to_email],
+                          auth_user='qweewqqweeqwq',
+                          auth_password='tezFfByum4SGDQe'
+                          )
+        return initial
