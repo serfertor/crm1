@@ -368,8 +368,19 @@ class sendmail(FormView):
     success_url = reverse_lazy('learning_mail_add')
 
     def form_valid(self, form):
-        mail = Mail(**form.cleaned_data)
-        mail.save()
+        data = form.cleaned_data
+        subject = data['top']
+        message = data['message']
+        from_email = 'qweewqqweeqwq@gmail.com'
+        to_email = data['towhom']
+        if subject and message and to_email:
+            send_mail(subject,
+                      message,
+                      from_email,
+                      [to_email],
+                      auth_user='qweewqqweeqwq',
+                      auth_password='tezFfByum4SGDQe'
+                      )
         return super().form_valid(form)
 
     def get_initial(self):
@@ -378,16 +389,4 @@ class sendmail(FormView):
             pk = self.kwargs['pk']
             mail = Mail.objects.get(pk=pk)
             initial['mail'] = mail
-            subject = mail.top
-            message = mail.message
-            from_email = 'qweewqqweeqwq@gmail.com'
-            to_email = mail.towhom
-            if subject and message and from_email:
-                send_mail(subject,
-                          message,
-                          from_email,
-                          [to_email],
-                          auth_user='qweewqqweeqwq',
-                          auth_password='tezFfByum4SGDQe'
-                          )
         return initial
