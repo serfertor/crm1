@@ -231,3 +231,15 @@ class AddGroupScheduleForm(forms.Form):
                                validators=[validators.MinValueValidator(1)])
 
     teachers = forms.ModelMultipleChoiceField(queryset=Member.objects.all(), label='Пеподаватели')
+
+
+class Mail(forms.Form):
+    top = forms.CharField(max_length=50, label='Заголовок',
+                          required=False,
+                          error_messages=error_messages)
+    message = forms.CharField(max_length=50, label='Сообщение',
+                              required=False,
+                              error_messages=error_messages)
+    towhom = forms.EmailField(max_length=50, label='example@email.com',
+                              required=False,
+                              error_messages=error_messages)

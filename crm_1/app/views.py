@@ -362,19 +362,25 @@ class LearningGroupScheduleAdd(FormView):
 
 
 @method_decorator(login_required, 'dispatch')
-def sendmail(request):
+class sendmail(FormView):
     template_name = 'app/learning_mail_add.html'
-    model = Mail
-    subject = model.top
-    message = model.message
-    from_email = 'qweewqqweeqwq@gmail.com'
-    to_email = model.towhom
-    if subject and message and from_email:
-        send_mail(subject,
-                  message,
-                  from_email,
-                  [to_email],
-                  auth_user='qweewqqweeqwq',
-                  auth_password='tezFfByum4SGDQe'
-                  )
-    return render(request, template_name)
+    form_class = Mail
+    success_url = reverse_lazy('learning_mail_add')
+
+    def form_valid(self, form):
+        mail = Mail(**form.cleaned_data)
+        mail.save()
+        return super().form_valid(form)
+
+    # subject = Mail.top
+    # message = Mail.message
+    # from_email = 'qweewqqweeqwq@gmail.com'
+    # to_email = Mail.towhom
+    # if subject and message and from_email:
+    #     send_mail(subject,
+    #               message,
+    #               from_email,
+    #               [to_email],
+    #               auth_user='qweewqqweeqwq',
+    #               auth_password='tezFfByum4SGDQe'
+    #               )
